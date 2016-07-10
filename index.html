@@ -1,7 +1,130 @@
-<html>
-<body>
-<h1><a href="https://www.openactive.io/"><img src="https://www.openactive.io/assets/openactive-logo-small.png" width="180" alt="" /></a> Dataset Site Generator</h1>
+<!DOCTYPE HTML>
+<!--
+	Design: Identity by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 
-<p>Please use <a href="generator.html">the dataset site generator</a> to create an index.html and metadata.json pages. Note that this has been pre-loaded with British Cycling's Sky Ride dataset data as an example, please adapt according to your needs.</p>
-</body>
+	DCAT Template: Nick Evans / imin
+	imin.co | @nickevans / @_imin_
+	For openactive.io
+    Free for personal and commercial use under the CC-BY v4.0 license (https://creativecommons.org/licenses/by/4.0/)
+-->
+<html prefix="dct: http://purl.org/dc/terms/
+              rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+              dcat: http://www.w3.org/ns/dcat#
+              foaf: http://xmlns.com/foaf/0.1/"
+              lang="en">
+	<head>
+		<title>GoodGym</title>
+
+		<meta name="title" content="GoodGym" />
+		<meta name="identifier" content="https://goodgym-oa.github.io/" />
+		<meta name="Keywords" content="#UseYourRun, Running, Openactive" />
+		<meta name="Description" content="Session data from the www.goodgym.org site; published using Openactive RPDE v0.2.4." />
+		<meta name="language" content="English" />
+
+		<meta property="og:title" content="GoodGym" />
+		<meta property="og:description" content="Session data from the www.goodgym.org site" />
+		<meta property="og:locale" content="en_GB" />
+		<meta property="og:url" content="https://goodgym-oa.github.io/" />
+		<meta property="og:image" content="https://goodgym-oa.github.io/images/logo.png" />
+
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-loading">
+
+		<!-- Wrapper -->
+			<div id="wrapper" typeof="dcat:Dataset" resource="https://goodgym-oa.github.io/">
+
+				<!-- Main -->
+					<section id="main">
+						<header>
+				            <div property="dct:publisher" 
+				                 resource="https://www.goodgym.org">
+				                <a href="https://www.goodgym.org" about="https://www.goodgym.org" property="foaf:homepage">
+				                    <span class="avatar" property="foaf:name" content="GoodGym"><img class"logo" src="https://goodgym-oa.github.io/images/logo.png" alt=""/></span>
+				                </a>
+				            </div>
+							
+							<h1>Open Data</h1> 
+
+							<div property='dcat:distribution' typeof='dcat:Distribution'>
+								<span class="metadata" property="dct:title">Openactive RPDE v0.2.4 Endpoint</span>
+								<span class="metadata" content='application/vnd.openactive+json; version=0.2.4' property='dcat:mediaType'>Openactive RPDE v0.2.4 Endpoint</span>    
+								<a class="metadata" href="https://www.openactive.io/realtime-paged-data-exchange/0.2.4/" property="dct:format">Openactive RPDE v0.2.4 Specification</a>
+								<p><a href='https://www.goodgym.org/getHappenings' property='dcat:accessURL'>GoodGym</a></p>
+							</div> 
+
+							<p class="description">Session data from the www.goodgym.org site; published using <a href="https://www.openactive.io/realtime-paged-data-exchange/0.2.4/" property="dct:format">Openactive RPDE v0.2.4</a>.<p>
+
+							<p class="metadata" property="dct:title">GoodGym</p> 
+					        <p class="metadata" property="dct:created" content='2016-07-11T00:00:00.000Z' datatype='xsd:dateTime'></p>
+					        <p class="metadata" property="dct:description">Session data from the www.goodgym.org site; published using Openactive RPDE v0.2.4.<p>
+					        <p class="metadata" property="dcat:keyword">#UseYourRun</p>
+					        <p class="metadata" property="dcat:keyword">Running</p>
+					        <p class="metadata" property="dcat:keyword">Openactive</p>
+					        <a class="metadata" href="http://purl.org/linked-data/sdmx/2009/code#freq-N" property="dcat:accrualPeriodicity">Every minute</a> 
+
+						</header>
+
+           				<footer>
+							<ul class="icons">
+								<li><a href="#" id="open-popup" class="fa-envelope">Mailing List</a><br /><span>Mailing List</span></li>
+								<li><a href="https://github.com/goodgym-oa/opendata" class="fa-info">Documentation</a><br /><span>Documentation</span></li>
+							</ul>
+							<div class="license">
+					            <span property="dct:license" resource="https://creativecommons.org/licenses/by/4.0/">
+					                This data is owned by <a href="https://www.goodgym.org">GoodGym</a> and is licensed under the 
+					   				<a href="https://creativecommons.org/licenses/by/4.0/"><span property="dct:title">Creative Commons Attribution Licence (CC-BY v4.0)</span></a>
+					                 for anyone to access, use and share; 
+					            </span>
+					            <span property="dct:rights" resource="#rights" typeof="odrs:RightsStatement">
+						            <span class="metadata" property="rdfs:label">Rights Statement</span>
+						            <a class="metadata" href="https://creativecommons.org/licenses/by/4.0/" property="odrs:dataLicense">Creative Commons Attribution Licence (CC-BY v4.0)</a>
+						            <a class="metadata" href="https://creativecommons.org/licenses/by/4.0/" property="odrs:contentLicense">Creative Commons Attribution Licence (CC-BY v4.0)</a>
+						            using attribution 
+						            "<a href="https://goodgym-oa.github.io/" property="odrs:attributionURL"><span property="odrs:attributionText">GoodGym</span></a>".
+						        </span>
+							</div>
+							<p></p>
+							<span class="avatar"><a href="https://www.openactive.io/"><img src="https://www.openactive.io/assets/openactive-logo-small.png" width="100" alt="" /></a></span>
+						</footer>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="copyright">
+							
+							<li>Design: &copy; Jane Doe; <a href="http://html5up.net">HTML5 UP</a>.</li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
+			<script>
+				if ('addEventListener' in window) {
+					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
+					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+				}
+			</script>
+
+
+		<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
+		<script type="text/javascript">
+			function showMailingPopUp() {
+				require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us13.list-manage.com","uuid":"9e6648557f84731796a4ac873","lid":"2167da53bb"}) })
+				document.cookie = "MCEvilPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			}
+			document.getElementById("open-popup").onclick = function() {showMailingPopUp()};
+		</script>
+
+	</body>
 </html>
