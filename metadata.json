@@ -14,6 +14,6 @@
   "license-url": "https://creativecommons.org/licenses/by/4.0/",
   "attribution-text": "GoodGym",
   "attribution-url": "https://goodgym-oa.github.io/",
-  "mailchimp": "require([\"mojo/signup-forms/Loader\"], function(L) { L.start({\"baseUrl\":\"mc.us13.list-manage.com\",\"uuid\":\"9e6648557f84731796a4ac873\",\"lid\":\"2167da53bb\"}) })",
+  "mailchimp": "require([\"mojo/signup-forms/Loader\"], function(L) { L.start({\"baseUrl\":\"mc.us13.list-manage.com\",\"uuid\":\"7143de572aae09a68ce9de9d0\",\"lid\":\"21b60b05c7\"}) })",
   "copyright-notice": ""
 }
