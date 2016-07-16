@@ -63,6 +63,7 @@ fi
 echo ""
 echo "Pushing..."
 git push -q
+echo "Push complete"
 
 echo ""
 
