@@ -62,7 +62,7 @@ fi
     
 echo ""
 echo "Pushing..."
-git push
+git push -q
 
 echo ""
 
