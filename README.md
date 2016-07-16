@@ -1,4 +1,4 @@
-# Dataset Site Generator
+# Dataset Site Generator [![Build Status](https://travis-ci.org/openactive/dataset-site-generator.svg?branch=master)](https://travis-ci.org/openactive/dataset-site-generator)
 
 ## Getting Started
 
@@ -7,3 +7,7 @@ This site originated from the Openactive Dataset Site Generator. For more inform
 ## Developers Notes
 
 Please read [the developers guide](https://github.com/openactive/dataset-site-generator/wiki/Developer-Notes-for-Data-Publishers) before making changes to this repository.
+
+## License and Attribution
+
+This Dataset Site Generator is licensed under the Creative Commons Attribution Licence (CC-BY v4.0) for anyone to access, use and share; using attribution via the Openactive logo and link at the bottom of the generated page.

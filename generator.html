@@ -18,56 +18,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
 <!--<![endif]-->
 
+<script src="generator/generator.js"></script>
+
 <script type="text/javascript">
 
 webshims.polyfill('forms es5');
-
-if(!("valueAsDate" in HTMLInputElement.prototype)){
-  Object.defineProperty(HTMLInputElement.prototype, "valueAsDate", {
-    get: function(){
-      var d = this.value.split(/\D/);
-      return new Date(d[0], --d[1], d[2]);
-    },
-    set: function(d){
-      var day = ("0" + d.getDate()).slice(-2),
-          month = ("0" + (d.getMonth() + 1)).slice(-2),
-          datestr = d.getFullYear()+"-"+month+"-"+day;
-      this.value = datestr;
-    }
-  });
-}
-
-function escapeRegExp(str) {
-    return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
-}
-function replaceAll(str, find, replace) {
-  return str.replace(new RegExp(escapeRegExp(find), 'g'), replace);
-}
-
-
 
 var INPUTS = "#inputdata input, #inputdata select, #inputdata textarea";
 
 /* 
  * Generate index.html
  */
-function generate() {
-    var inputText = $( "#template" ).val();
-
-    $( INPUTS ).each(function() {
-        var id = $( this ).attr('id');
-        var value = $( this ).val();
-        if ($( this ).attr('type') == "date") {
-            var humanReadableDate = value && "";
-            var machineReadableDate = value ? document.getElementById(id).valueAsDate.toISOString() : "";
-            inputText = replaceAll(inputText,"{"+id+"-human}",humanReadableDate);
-            inputText = replaceAll(inputText,"{"+id+"-machine}",machineReadableDate);
-        } else {
-            inputText = replaceAll(inputText,"{"+id+"}",value);
-        }
-    });
-
-    $( "#output" ).val(inputText);
+function generateIntoTextbox(state) {
+    var template = $( "#template" ).val();
+    var output = generate(template, state);
+    $( "#output" ).val(output);
 }
 
 /* 
@@ -92,6 +57,8 @@ function saveState() {
     });
 
     $( "#state" ).val(JSON.stringify(state, null, 2));
+
+    return state;
 }
 
 /* 
@@ -110,6 +77,7 @@ function loadState() {
     $.each( state, function( key, value ) {
         $('#' + key).val(value);
     });
+    return state;
 }
 
 /* 
@@ -147,6 +115,30 @@ function extractMailchimp() {
     }
 }
 
+/* 
+ * Extract code from mailchimp textbox
+ */
+function extractOdiCertificateNumber() {
+    var textBox = $( "#odi-certificate-number" );
+    var value = textBox.val();
+    if (value) {
+        var numrx = /^[0-9]*$/g;
+        var rx = /datasets\/([0-9]*)\/certificate/g;
+        var numarr = numrx.exec(value);
+        var arr = rx.exec(value);
+        if (numarr) {
+            //Already a number in the box, do nothing
+        } else if (arr && arr.length == 2) {
+            //Extract the number and put it in the box
+            value = arr[1]; 
+            textBox.val(value);
+        } else {
+            alert ("Invalid Open Data Certificate code, please ensure you are copying the Badge, Certificate, or URL from the 'Embed' button in your Certificate page");
+            textBox.val("");
+        }
+    }
+}
+
 /*
  * Ensure dataset pages ends in a "/"
  */
@@ -166,12 +158,13 @@ function setupForm() {
     $( INPUTS ).blur(function () {
         datasetBaseUrl();
         extractMailchimp();
-        generate();
-        saveState();
+        extractOdiCertificateNumber();
+        var state = saveState();
+        generateIntoTextbox(state);
     });
     $( "#state" ).blur(function () {
-        loadState();
-        generate();
+        var state = loadState();
+        generateIntoTextbox(state);
     });
 }
 
@@ -189,7 +182,7 @@ function showTemplateManualEntry() {
  */
 $(function() {
     //Load template first
-    loadFile("template.html", function(data) {
+    loadFile("generator/template.html", function(data) {
         $( "#template" ).val( data );
 
         //When template has loaded, load state
@@ -197,8 +190,8 @@ $(function() {
             $( "#state" ).val( data );
             loadState();
             firstRun();
-            saveState();
-            generate();
+            var state = saveState();
+            generateIntoTextbox(state);
             setupForm();
             showForm();
         });
@@ -275,6 +268,9 @@ $(function() {
 
         <label for="copyright-notice"><strong>Copyright HTML</strong> (required if your selected background image is not owned by you)</label>
         <textarea class="pure-input-1" id="copyright-notice"></textarea>
+
+        <label for="odi-certificate-number"><strong>Open Data Certificate</strong> (see <a href="https://github.com/openactive/dataset-site-generator/wiki/Open-Data-Certificates">this guide</a>)</label>
+        <textarea class="pure-input-1" id="odi-certificate-number"></textarea>
     </fieldset>
 
     <br />

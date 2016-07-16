@@ -879,3 +879,16 @@
 	max-width: 230px;
 	max-height: 80px;
 }
+
+.badge {
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center; 
+	border-radius: initial !important;
+	border: none !important;
+	opacity: 0.5;
+}
+
+.badge:hover {
+	opacity: 1;
+}

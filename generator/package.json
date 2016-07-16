@@ -1,0 +1,19 @@
+{
+  "name": "openactive-dataset-site-generator",
+  "version": "1.0.0",
+  "description": "Dataset Site Generator for Openactive implementations",
+  "engines": {
+    "node": "5.9.1"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "~0.4.0",
+    "commander": "~2.2.0",
+    "moment": "^2.12.0",
+    "request": "~2.36.0",
+    "underscore": "^1.8.3"
+  },
+  "bin": {
+    "distribute": "distribute.js"
+  }
+}
