@@ -5,11 +5,11 @@
  */ 
 
 var program = require('commander');
-var request = require('request');
 var chalk = require('chalk');
 var _ = require('underscore');
 var fs = require('fs');
 var execFile = require('child_process').execFile;
+var github = require('./github.js');
 
 function createEnv(name, url, token) {
     // get the GH_REF of the form "github.com/abc/xyz.git"
@@ -54,7 +54,7 @@ function runDeploy(queue) {
         deploySh.stderr.pipe(process.stderr);
     } else {
         // End of the queue
-        console.log(chalk.yellow('Success!'));
+        console.log(chalk.yellow('\nDistribution Success!'));
         process.exit(0);
     }
 }
@@ -69,46 +69,29 @@ program
 if(!program.token) {
     program.help();
 } else {
-    var url = 'https://api.github.com/repos/openactive/dataset-site-generator/forks';
+    console.log(chalk.cyan.bold('\nGetting Dataset Site Generator Forks...'));
 
-    console.log("Contacting GitHub...");
+    github.gitHubGetForks(program.token, function(body) {
 
-    request({
-        method: 'GET',
-        headers: {
-            'User-Agent': 'Dataset Site Generator Distribute Script',
-            'Authorization': 'token ' + program.token
-        },
-        url: url
-    }, function(error, response, body) {
+        if(program.full) {
+            console.log(body);
+        } 
 
-        console.log("Response received...");
+        var queue = [];
 
-        if (!error && response.statusCode == 200) {
-            var body = JSON.parse(body);
-            if(program.full) {
-                console.log(body);
-            } 
+        for(var i = 0; i < body.length; i++) {
+            console.log(chalk.magenta.bold('\nFound: ' + body[i].name ));
+            console.log(chalk.grey('Desc: ' + body[i].description ));
+            console.log(chalk.grey('Push: ' + body[i].permissions.push ));
+            console.log(chalk.grey('Git URL: ' + body[i].git_url ));
 
-            var queue = [];
-
-            for(var i = 0; i < body.length; i++) {
-                console.log(chalk.magenta.bold('\nFound: ' + body[i].name ));
-                console.log(chalk.grey('Desc: ' + body[i].description ));
-                console.log(chalk.grey('Push: ' + body[i].permissions.push ));
-                console.log(chalk.grey('Git URL: ' + body[i].git_url ));
-
-                if (body[i].permissions.push) {
-                    //Only operatate on repos we have access to
-                    console.log(chalk.cyan.bold('\nCreating environment for: ' + body[i].git_url  + '...'));
-                    queue.push(createEnv(body[i].name, body[i].git_url, program.token));
-                }
+            if (body[i].permissions.push) {
+                //Only operatate on repos we have access to
+                console.log(chalk.cyan.bold('\nCreating environment for: ' + body[i].git_url  + '...'));
+                queue.push(createEnv(body[i].name, body[i].git_url, program.token));
             }
-            runDeploy(queue);
-
-        } else if (error) {
-            console.log(chalk.red('Error: ' + error));
-            process.exit(1);
         }
+        runDeploy(queue);
+
     });
 }
