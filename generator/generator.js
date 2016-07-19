@@ -50,6 +50,8 @@ function generate(template, state) {
     return template;
 }
 
-//Allow this to be required by node
-var exports = module.exports = {};
-exports.generate = generate;
+if ('undefined' !== typeof module) {
+    //Allow this to be required by node, if server-side
+    var exports = module.exports = {};
+    exports.generate = generate;
+}

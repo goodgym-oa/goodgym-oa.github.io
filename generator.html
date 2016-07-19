@@ -52,7 +52,13 @@ function saveState() {
 
     $( INPUTS ).each(function() {
         var id = $( this ).attr('id');
-        var value = $( this ).val();
+        var value;
+        if ($( this ).attr('type') == "checkbox") {
+            value = $( this ).prop( "checked" );
+        } else {
+            value = $( this ).val();
+        }
+        
         state[id] = value;
     });
 
@@ -75,7 +81,13 @@ function loadState() {
         alert("The file that was pasted in the 'metadata.json' box is not valid");
     }
     $.each( state, function( key, value ) {
-        $('#' + key).val(value);
+        $('#' + key).each(function () {
+            if ($( this ).attr('type') == "checkbox") {
+                $( this ).prop( "checked", value );
+            } else {
+                $( this ).val(value);
+            }
+        });
     });
     return state;
 }
@@ -271,6 +283,11 @@ $(function() {
 
         <label for="odi-certificate-number"><strong>Open Data Certificate</strong> (see <a href="https://github.com/openactive/dataset-site-generator/wiki/Open-Data-Certificates">this guide</a>)</label>
         <textarea class="pure-input-1" id="odi-certificate-number"></textarea>
+
+        <label for="publish" class="pure-checkbox">
+            <input id="publish" type="checkbox" value="publish">
+            <strong>Publish</strong> (to <a href="https://www.openactive.io/use-data.html">openactive.io</a>)
+        </label>
     </fieldset>
 
     <br />
