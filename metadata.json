@@ -15,5 +15,7 @@
   "attribution-text": "GoodGym",
   "attribution-url": "https://goodgym-oa.github.io/",
   "mailchimp": "require([\"mojo/signup-forms/Loader\"], function(L) { L.start({\"baseUrl\":\"mc.us13.list-manage.com\",\"uuid\":\"7143de572aae09a68ce9de9d0\",\"lid\":\"21b60b05c7\"}) })",
-  "copyright-notice": ""
+  "copyright-notice": "",
+  "odi-certificate-number": "",
+  "publish": true
 }
