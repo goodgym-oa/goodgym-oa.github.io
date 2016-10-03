@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-This site originated from the Openactive Dataset Site Generator. For more information see the [Dataset Site Generator Wiki](https://github.com/openactive/dataset-site-generator/wiki/).
+This site originated from the OpenActive Dataset Site Generator. For more information see the [Dataset Site Generator Wiki](https://github.com/openactive/dataset-site-generator/wiki/).
 
 ## Developers Notes
 
@@ -10,4 +10,4 @@ Please read [the developers guide](https://github.com/openactive/dataset-site-ge
 
 ## License and Attribution
 
-This Dataset Site Generator is licensed under the Creative Commons Attribution Licence (CC-BY v4.0) for anyone to access, use and share; using attribution via the Openactive logo and link at the bottom of the generated page.
+This Dataset Site Generator is licensed under the Creative Commons Attribution Licence (CC-BY v4.0) for anyone to access, use and share; using attribution via the OpenActive logo and link at the bottom of the generated page.
