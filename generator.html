@@ -1,326 +1,133 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
 <!--
-    Nick Evans / imin
-    imin.co | @nickevans / @_imin_
-    For openactive.io
+	Design: Identity by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+
+	DCAT Template: Nick Evans / imin
+	imin.co | @nickevans / @_imin_
+	For openactive.io
     Free for personal and commercial use under the CC-BY v4.0 license (https://creativecommons.org/licenses/by/4.0/)
 -->
-<head>
-<title>Openactive Dataset Site Generator</title>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/webshim/1.15.10/minified/polyfiller.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
-<!--[if lte IE 8]>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
-<![endif]-->
-<!--[if gt IE 8]><!-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
-<!--<![endif]-->
+<html prefix="dct: http://purl.org/dc/terms/
+              rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+              dcat: http://www.w3.org/ns/dcat#
+              foaf: http://xmlns.com/foaf/0.1/"
+              lang="en">
+	<head>
+		<title>GoodGym Sessions - Open Data</title>
 
-<script src="generator/generator.js"></script>
+		<meta name="title" content="GoodGym Sessions - Open Data" />
+		<meta name="identifier" content="http://data.goodgym.org/" />
+		<meta name="Keywords" content="#UseYourRun, Running, OpenActive" />
+		<meta name="Description" content="Session data from the www.goodgym.org site; published using OpenActive RPDE v0.2.3." />
+		<meta name="language" content="English" />
 
-<script type="text/javascript">
+		<meta property="og:title" content="GoodGym Sessions - Open Data" />
+		<meta property="og:description" content="Session data from the www.goodgym.org site" />
+		<meta property="og:locale" content="en_GB" />
+		<meta property="og:url" content="http://data.goodgym.org/" />
+		<meta property="og:image" content="http://data.goodgym.org/images/logo.png" />
 
-webshims.polyfill('forms es5');
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-loading">
 
-var INPUTS = "#inputdata input, #inputdata select, #inputdata textarea";
+		<!-- Wrapper -->
+			<div id="wrapper" typeof="dcat:Dataset" resource="http://data.goodgym.org/">
 
-/* 
- * Generate index.html
- */
-function generateIntoTextbox(state) {
-    var template = $( "#template" ).val();
-    var output = generate(template, state);
-    $( "#output" ).val(output);
-}
+				<!-- Main -->
+					<section id="main">
+						<header>
+				            <div property="dct:publisher" 
+				                 resource="https://www.goodgym.org">
+				                <a href="https://www.goodgym.org" about="https://www.goodgym.org" property="foaf:homepage">
+				                    <span class="avatar" property="foaf:name" content="GoodGym"><img class="logo" src="http://data.goodgym.org/images/logo.png" alt=""/></span>
+				                </a>
+				            </div>
+							
+							<h1>Open Data</h1> 
 
-/* 
- * Replace empty metadata on first run
- */
-function firstRun() {
-    if (!location.origin) location.origin = location.protocol + "//" + location.host;
-    if ($( "#dataset-site-url" ).val() == "") $( "#dataset-site-url" ).val(location.origin + "/");
-    if ($( "#attribution-url" ).val() == "") $( "#attribution-url" ).val(location.origin + "/");
-}
+							<div property='dcat:distribution' typeof='dcat:Distribution'>
+								<span class="metadata" property="dct:title">OpenActive RPDE v0.2.3 Endpoint</span>
+								<span class="metadata" content='application/vnd.openactive.rpde+json; version=0.2.3' property='dcat:mediaType'>OpenActive RPDE v0.2.3 Endpoint</span>    
+								<a class="metadata" href="https://www.openactive.io/realtime-paged-data-exchange/0.2.3/" property="dct:format">OpenActive RPDE v0.2.3 Specification</a>
+								<p><a href='https://www.goodgym.org/getHappenings' property='dcat:accessURL'>GoodGym Sessions</a></p>
+							</div> 
 
-/* 
- * Save state to metadata.json textarea
- */
-function saveState() {
-    var state = {};
+							<p class="description">Session data from the www.goodgym.org site; published using <a href="https://www.openactive.io/realtime-paged-data-exchange/0.2.3/" property="dct:format">OpenActive RPDE v0.2.3</a>.<p>
 
-    $( INPUTS ).each(function() {
-        var id = $( this ).attr('id');
-        var value;
-        if ($( this ).attr('type') == "checkbox") {
-            value = $( this ).prop( "checked" );
-        } else {
-            value = $( this ).val();
-        }
-        
-        state[id] = value;
-    });
+							<p class="metadata" property="dct:title">GoodGym Sessions</p> 
+					        <p class="metadata" property="dct:created" content='2016-07-11T00:00:00.000Z' datatype='xsd:dateTime'>2016-07-11</p>
+					        <p class="metadata" property="dct:description">Session data from the www.goodgym.org site; published using OpenActive RPDE v0.2.3.<p>
+					        <p class="metadata" property="dcat:keyword">#UseYourRun</p>
+					        <p class="metadata" property="dcat:keyword">Running</p>
+					        <p class="metadata" property="dcat:keyword">OpenActive</p>
+					        <a class="metadata" href="http://purl.org/linked-data/sdmx/2009/code#freq-N" property="dcat:accrualPeriodicity">Every minute</a> 
 
-    $( "#state" ).val(JSON.stringify(state, null, 2));
+						</header>
 
-    return state;
-}
+           				<footer>
+							<ul class="icons">
+								<li><a href="#" id="open-popup" class="fa-envelope">Mailing List</a><br /><span>Mailing List</span></li>
+								<li><a href="https://github.com/goodgym-oa/opendata" class="fa-info">Documentation</a><br /><span>Documentation</span></li>
 
-/* 
- * Load state from metadata.json textarea
- */
-function loadState() {
-    var stateSerialised = $( "#state" ).val();
+								<li style="display: none;"><a href="https://certificates.theodi.org/en/datasets//certificate" class="badge" style="background-image: url('https://certificates.theodi.org/en/datasets//certificate/badge.png');"></a><br /><span>Certificate</span>
+								</li>
+							</ul>
+							<div class="license">
+					            <span property="dct:license" resource="https://creativecommons.org/licenses/by/4.0/">
+					                This data is owned by <a href="https://www.goodgym.org">GoodGym</a> and is licensed under the 
+					   				<a href="https://creativecommons.org/licenses/by/4.0/"><span property="dct:title">Creative Commons Attribution Licence (CC-BY v4.0)</span></a>
+					                 for anyone to access, use and share; 
+					            </span>
+					            <span property="dct:rights" resource="#rights" typeof="odrs:RightsStatement">
+						            <span class="metadata" property="rdfs:label">Rights Statement</span>
+						            <a class="metadata" href="https://creativecommons.org/licenses/by/4.0/" property="odrs:dataLicense">Creative Commons Attribution Licence (CC-BY v4.0)</a>
+						            <a class="metadata" href="https://creativecommons.org/licenses/by/4.0/" property="odrs:contentLicense">Creative Commons Attribution Licence (CC-BY v4.0)</a>
+						            using attribution 
+						            "<a href="http://data.goodgym.org/" property="odrs:attributionURL"><span property="odrs:attributionText">GoodGym</span></a>".
+						        </span>
+							</div>
+							<p></p>
+							<span class="avatar"><a href="https://www.openactive.io/"><img src="https://www.openactive.io/assets/openactive-logo-small.png" width="100" alt="" /></a></span>
+						</footer>
+					</section>
 
-    var state = null;
-    try {
-        state = JSON.parse(stateSerialised);
-    }
-    catch(err) {
-        alert("The file that was pasted in the 'metadata.json' box is not valid");
-    }
-    $.each( state, function( key, value ) {
-        $('#' + key).each(function () {
-            if ($( this ).attr('type') == "checkbox") {
-                $( this ).prop( "checked", value );
-            } else {
-                $( this ).val(value);
-            }
-        });
-    });
-    return state;
-}
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="copyright">
+							
+							<li>Design: <a href="http://html5up.net">HTML5 UP</a>.</li>
+						</ul>
+					</footer>
 
-/* 
- * Load state from metadata.json textarea
- */
-function loadFile(url, cb) {
-    $.get(url, function(data) {
-        cb(data);
-    }, "text").fail(function() {
-        alert("Error loading file: " + url);
+			</div>
 
-        //In the case of error, enable manual mode
-        setupForm();
-        showForm();
-        showTemplateManualEntry()
-    });
-}
-
-/* 
- * Extract code from mailchimp textbox
- */
-function extractMailchimp() {
-    var textBox = $( "#mailchimp" );
-    var value = textBox.val();
-    if (value) {
-        var rx = /require.*}\) }\)/g;
-        var arr = rx.exec(value);
-        if (arr) {
-            value = arr[0]; 
-            textBox.val(value);
-        } else {
-            alert ("Invalid Mailchimp code, please ensure you are clicking 'View Code' in the Subscriber Popup feature within the 'Signup Forms' section of a List");
-            textBox.val("");
-        }
-    }
-}
-
-/* 
- * Extract code from mailchimp textbox
- */
-function extractOdiCertificateNumber() {
-    var textBox = $( "#odi-certificate-number" );
-    var value = textBox.val();
-    if (value) {
-        var numrx = /^[0-9]*$/g;
-        var rx = /datasets\/([0-9]*)\/certificate/g;
-        var numarr = numrx.exec(value);
-        var arr = rx.exec(value);
-        if (numarr) {
-            //Already a number in the box, do nothing
-        } else if (arr && arr.length == 2) {
-            //Extract the number and put it in the box
-            value = arr[1]; 
-            textBox.val(value);
-        } else {
-            alert ("Invalid Open Data Certificate code, please ensure you are copying the Badge, Certificate, or URL from the 'Embed' button in your Certificate page");
-            textBox.val("");
-        }
-    }
-}
-
-/*
- * Ensure dataset pages ends in a "/"
- */
- function datasetBaseUrl() {
-    var textBox = $( "#dataset-site-url" );
-    var value = textBox.val();
-    if (value != "" && !value.endsWith("/")) {
-        textBox.val(value + "/");
-    }
-}
-
-/*
- * Set up form and unhide it
- */
-function setupForm() {
-    //Set up events
-    $( INPUTS ).blur(function () {
-        datasetBaseUrl();
-        extractMailchimp();
-        extractOdiCertificateNumber();
-        var state = saveState();
-        generateIntoTextbox(state);
-    });
-    $( "#state" ).blur(function () {
-        var state = loadState();
-        generateIntoTextbox(state);
-    });
-}
-
-function showForm() {
-    $( "#content" ).show();
-    $( "#loading" ).hide();
-}
-
-function showTemplateManualEntry() {
-    $( "#templateManual" ).show();
-}
-
-/* 
- * On Page Load
- */
-$(function() {
-    //Load template first
-    loadFile("generator/template.html", function(data) {
-        $( "#template" ).val( data );
-
-        //When template has loaded, load state
-        loadFile("metadata.json", function(data) {
-            $( "#state" ).val( data );
-            loadState();
-            firstRun();
-            var state = saveState();
-            generateIntoTextbox(state);
-            setupForm();
-            showForm();
-        });
-    });
-})    
-
-</script>
-<style>
-    body { max-width: 700px; margin: 20px; }
-    label { padding-top: 20px; }
-    textarea {height: 200px;}
-</style>
-</head>
-<body>
+		<!-- Scripts -->
+			<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
+			<script>
+				if ('addEventListener' in window) {
+					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
+					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+				}
+			</script>
 
 
+		<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
+		<script type="text/javascript">
+			function showMailingPopUp() {
+				require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us13.list-manage.com","uuid":"7143de572aae09a68ce9de9d0","lid":"21b60b05c7"}) })
+				document.cookie = "MCEvilPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			}
+			document.getElementById("open-popup").onclick = function() {showMailingPopUp()};
+		</script>
 
-<h1><a href="https://www.openactive.io/"><img src="https://www.openactive.io/assets/openactive-logo-small.png" width="180" alt="" /></a> Dataset Site Generator</h1>
-
-<div id="loading">Loading...</div>
-
-<form id="content" style="display: none;" class="pure-form pure-form-stacked">
-    <fieldset id="inputdata">
-        <h2>Dataset Page Fields</h2>
-
-        <label for="dataset-site-url"><strong>Dataset Site URL</strong> (the GitHub pages site you are creating)</label>
-        <input class="pure-input-1" id="dataset-site-url" type="url" placeholder="https://britishcycling-oa.github.io/">
-
-
-        <label for="title"><strong>Title of Dataset</strong> (keep this as concise as possible)</label>
-        <input class="pure-input-1" id="title" placeholder="British Cycling Sky Ride Sessions">
-
-        <label for="description"><strong>Description</strong></label>
-        <input class="pure-input-1" id="description" placeholder="Session data from the goskyride.com site">
-
-        <label for="publisher-name"><strong>Publisher Name</strong> (usually your organisation's name)</label>
-        <input class="pure-input-1" id="publisher-name" placeholder="British Cycling">
-
-        <label for="publisher-url"><strong>Publisher URL</strong> (usually your organisation's website)</label>
-        <input class="pure-input-1" id="publisher-url" placeholder="https://www.britishcycling.org.uk" />
-
-        <label for="keyword-1"><strong>Keywords</strong> (to help people find your data)</label>
-        <input class="pure-input-1" id="keyword-1" placeholder="Cycling">
-        <input class="pure-input-1" id="keyword-2" placeholder="Sky Ride">
-
-        <label for="data-url"><strong>Openactive RPDE Data Feed URL</strong></label>
-        <input class="pure-input-1" id="data-url" type="url" placeholder="http://api.ridesociallondon.co.uk/api/EventFeed">
-
-        <label for="created"><strong>Date of Publishing</strong> (the date your Openactive RPDE Data Feed URL went live with the correct license, use today's date if you are creating the license today)</label>
-        <input class="pure-input-1" id="created" type="date" >
-
-        <label for="documentation-url"><strong>Documentation URL</strong> (e.g. GitHub repository, see <a href="https://github.com/openactive/dataset-site-generator/wiki/Creating-Dataset-Documentation">this guide</a> for more information)</label>
-        <input class="pure-input-1" id="documentation-url" type="url" placeholder="https://github.com/britishcycling-oa/opendata">
-
-
-        <label for="rpde-version"><strong>Openactive RPDE Version</strong> (the version of <a href="https://github.com/openactive/realtime-paged-data-exchange">Openactive RPDE</a> used by your developers).</label>
-        <input class="pure-input-1" id="rpde-version" placeholder="0.2.3">
-
-
-        <label for="license-name"><strong>License Name</strong> - recommended "Creative Commons Attribution Licence (CC-BY v4.0)"</label>
-        <input class="pure-input-1" id="license-name" placeholder="Creative Commons Attribution Licence (CC-BY v4.0)" value="Creative Commons Attribution Licence (CC-BY v4.0)">
-
-        <label for="license-url"><strong>License URL</strong> - recommended "https://creativecommons.org/licenses/by/4.0/"</label>
-        <input class="pure-input-1" id="license-url" placeholder="https://creativecommons.org/licenses/by/4.0/" value="https://creativecommons.org/licenses/by/4.0/">
-
-        <label for="attribution-text"><strong>Attribution Text</strong> (shown on apps and websites that use the data)</label>
-        <input class="pure-input-1" id="attribution-text" placeholder="British Cycling">
-
-        <label for="attribution-url"><strong>Attribution URL</strong> (linked from apps and websites that use the data)</label>
-        <input class="pure-input-1" id="attribution-url" type="url" placeholder="https://britishcycling-oa.github.io">
-
-        <label for="mailchimp"><strong>Mailchimp Code</strong> (see <a href="https://github.com/openactive/dataset-site-generator/wiki/Setting-up-Mailchimp">this guide</a>)</label>
-        <textarea class="pure-input-1" id="mailchimp"></textarea>
-
-        <label for="copyright-notice"><strong>Copyright HTML</strong> (required if your selected background image is not owned by you)</label>
-        <textarea class="pure-input-1" id="copyright-notice"></textarea>
-
-        <label for="odi-certificate-number"><strong>Open Data Certificate</strong> (see <a href="https://github.com/openactive/dataset-site-generator/wiki/Open-Data-Certificates">this guide</a>)</label>
-        <textarea class="pure-input-1" id="odi-certificate-number"></textarea>
-
-        <label for="publish" class="pure-checkbox">
-            <input id="publish" type="checkbox" value="publish">
-            <strong>Publish</strong> (to <a href="https://www.openactive.io/use-data.html">openactive.io</a>)
-        </label>
-    </fieldset>
-
-    <br />
-    <hr />
-    <br />
-
-    <fieldset>
-        <h2>Generated Files (to paste into GitHub)</h2>
-
-        <div class="pure-g">
-            <div class="pure-u-1 pure-u-md-1-2">
-                <label for="output"><strong>index.html</strong> - Generated Webpage Code</label>
-                <textarea class="pure-u-23-24" id="output"></textarea>
-            </div>
-            <div class="pure-u-1 pure-u-md-1-2">
-                <label for="state"><strong>metadata.json</strong> - Page Generator Metadata</label>
-                <textarea class="pure-u-23-24" id="state"></textarea>
-            </div>
-        </div>
-    </fieldset>
-
-
-    <fieldset id="templateManual" style="display: none;">
-        <br />
-        <hr />
-        <br />
-        <h2>Manual Entry</h2>
-        <div>When editing this form locally, the ajax fetch of the template will fail. Instead simply copy the contents of template.html into the box below, and the contents of metadata.json into the right-hand box above.</div>
-        <label for="template">Template HTML (paste <strong>template.html</strong> in here)</label>
-        <textarea class="pure-input-1" id="template"></textarea>
-    </fieldset>
-
-</form>
-
-</body>
+	</body>
 </html>
