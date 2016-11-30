@@ -1,5 +1,5 @@
 {
-  "dataset-site-url": "https://goodgym-oa.github.io/",
+  "dataset-site-url": "http://data.goodgym.org/",
   "title": "GoodGym Sessions",
   "description": "Session data from the www.goodgym.org site",
   "publisher-name": "GoodGym",
@@ -13,7 +13,7 @@
   "license-name": "Creative Commons Attribution Licence (CC-BY v4.0)",
   "license-url": "https://creativecommons.org/licenses/by/4.0/",
   "attribution-text": "GoodGym",
-  "attribution-url": "https://goodgym-oa.github.io/",
+  "attribution-url": "http://data.goodgym.org/",
   "mailchimp": "require([\"mojo/signup-forms/Loader\"], function(L) { L.start({\"baseUrl\":\"mc.us13.list-manage.com\",\"uuid\":\"7143de572aae09a68ce9de9d0\",\"lid\":\"21b60b05c7\"}) })",
   "copyright-notice": "",
   "odi-certificate-number": "",
