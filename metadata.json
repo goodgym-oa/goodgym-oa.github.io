@@ -6,7 +6,7 @@
   "publisher-url": "https://www.goodgym.org",
   "keyword-1": "#UseYourRun",
   "keyword-2": "Running",
-  "data-url": "https://www.goodgym.org/getHappenings",
+  "data-url": "https://www.goodgym.org/api/happenings",
   "created": "2016-07-11",
   "documentation-url": "https://github.com/goodgym-oa/opendata",
   "rpde-version": "0.2.3",
