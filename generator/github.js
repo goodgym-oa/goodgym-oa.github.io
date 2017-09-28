@@ -16,6 +16,7 @@ function gitHubRequest(url, token, method, success, expectedSuccessCode, body) {
         method: method,
         headers: {
             'User-Agent': 'Dataset Site Generator Distribute Script',
+            'Accept': 'application/vnd.github.swamp-thing-preview+json',
             'Authorization': 'token ' + token
         },
         body: body,
