@@ -11,6 +11,17 @@ var fs = require('fs');
 var execFile = require('child_process').execFile;
 var github = require('./github.js');
 
+Array.prototype.sortOn = function(key){
+    this.sort(function(a, b){
+        if(a[key].toLowerCase() < b[key].toLowerCase()){
+            return -1;
+        }else if(a[key].toLowerCase() > b[key].toLowerCase()){
+            return 1;
+        }
+        return 0;
+    });
+}
+
 function createEnv(name, url, token) {
     // get the GH_REF of the form "github.com/abc/xyz.git"
     url = url.replace("git://","");
@@ -77,6 +88,9 @@ function metadataAccumulator(token, queue, metadataItems, metadataEnv) {
       metadataAccumulator(token, queue, metadataItems, metadataEnv);
     });
   } else {
+    // Sort alphabetically
+    metadataItems.sortOn("title");
+
     // End of the list, write the directory json
     console.log(chalk.magenta.bold('\nDirectory Dataset Count: ' + metadataItems.length ));
     metadataEnv.DIRECTORY_JSON = JSON.stringify(metadataItems, null, ' ');
