@@ -67,7 +67,7 @@ function runDeploy(queue, cb) {
     var env = queue.pop();
     if (env) {
         runScript(env, 'deploy.sh', function success() {
-            runDeploy(queue);
+            runDeploy(queue, cb);
         });
     } else {
         // End of the queue
