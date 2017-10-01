@@ -45,9 +45,30 @@ function gitHubRequest(url, token, method, success, expectedSuccessCode, body) {
 }
 exports.gitHubRequest = gitHubRequest;
 
+function gitHubGetRawJsonContent(token, repoPath, filePath, success) {
+    var url = 'https://raw.githubusercontent.com/' + repoPath + '/master/' + filePath;
+    gitHubRequest(url, token, 'GET', function (jsonBody) {
+        success(jsonBody);
+    });
+}
+exports.gitHubGetRawJsonContent = gitHubGetRawJsonContent;
+
+function gitHubGetRawJsonContentCached(token, repoPath, filePath, success) {
+    var url = "https://api.github.com/repos/" + repoPath + "/commits";
+    gitHubRequest(url, token, 'GET', function (commits) {
+        var sha = commits[0].sha;
+        console.log("Latest sha for '" + repoPath + "': " + sha);
+
+        var url = "https://cdn.rawgit.com/" + repoPath + "/" + sha + "/" + filePath;
+        gitHubRequest(url, token, 'GET', function (jsonBody) {
+            success(jsonBody);
+        });
+    });
+}
+exports.gitHubGetRawJsonContentCached = gitHubGetRawJsonContentCached;
 
 function gitHubGetForks(token, success) {
-    var url = 'https://api.github.com/repos/openactive/dataset-site-generator/forks';
+    var url = 'https://api.github.com/repos/openactive/dataset-site-generator/forks?sort=stargazers';
     gitHubRequest(url, token, 'GET', function (jsonBody) {
         success(jsonBody);
     });

@@ -28,7 +28,7 @@ echo "Performing merge..."
 
 # Configure git's merge to permanently ignore all upstream changes to locally-changed files
 git config merge.pin.driver true
-echo index.html merge=pin >> .git/info/attributes
+# echo index.html merge=pin >> .git/info/attributes
 echo metadata.json merge=pin >> .git/info/attributes
 echo images/bg.jpg merge=pin >> .git/info/attributes
 echo images/logo.png merge=pin >> .git/info/attributes
