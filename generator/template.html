@@ -1,12 +1,12 @@
 <!DOCTYPE HTML>
 <!--
-	Design: Identity by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  Design: Identity by HTML5 UP
+  html5up.net | @ajlkn
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 
-	DCAT Template: Nick Evans / imin
-	imin.co | @nickevans / @_imin_
-	For openactive.io
+  DCAT Template: Nick Evans / imin
+  imin.co | @nickevans / @_imin_
+  For openactive.io
     Free for personal and commercial use under the CC-BY v4.0 license (https://creativecommons.org/licenses/by/4.0/)
 -->
 <html prefix="dct: http://purl.org/dc/terms/
@@ -14,120 +14,149 @@
               dcat: http://www.w3.org/ns/dcat#
               foaf: http://xmlns.com/foaf/0.1/"
               lang="en">
-	<head>
-		<title>{title} - Open Data</title>
+  <head>
+    <title>{title} - Open Data</title>
 
-		<meta name="title" content="{title} - Open Data" />
-		<meta name="identifier" content="{dataset-site-url}" />
-		<meta name="Keywords" content="{keyword-1}, {keyword-2}, OpenActive" />
-		<meta name="Description" content="{description}; published using OpenActive RPDE v{rpde-version}." />
-		<meta name="language" content="English" />
+    <meta name="title" content="{title} - Open Data" />
+    <meta name="identifier" content="{dataset-site-url}" />
+    <meta name="Keywords" content="{keyword-1}, {keyword-2}, OpenActive" />
+    <meta name="Description" content="{description}; published using OpenActive RPDE v{rpde-version}." />
+    <meta name="language" content="English" />
 
-		<meta property="og:title" content="{title} - Open Data" />
-		<meta property="og:description" content="{description}" />
-		<meta property="og:locale" content="en_GB" />
-		<meta property="og:url" content="{dataset-site-url}" />
-		<meta property="og:image" content="{dataset-site-url}images/logo.png" />
+    <meta property="og:title" content="{title} - Open Data" />
+    <meta property="og:description" content="{description}" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:url" content="{dataset-site-url}" />
+    <meta property="og:image" content="{dataset-site-url}images/logo.png" />
 
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-loading">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-		<!-- Wrapper -->
-			<div id="wrapper" typeof="dcat:Dataset" resource="{dataset-site-url}">
+    <!-- JSON-LD conforming to Google Structured Data specification. -->
+    <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Dataset",
+      "name" : "{title}",
+      "id": "{dataset-site-url}",
+      "url": "{dataset-site-url}",
+      "description" : "{description}; published using OpenActive RPDE v{rpde-version}.",
+      "keywords":[
+         "{keyword-1}",
+         "{keyword-2}",
+         "OpenActive"
+      ],
+      "license" : "{license-url}",
+      "distribution" : {
+        "@type" : "DataDownload",
+        "encodingFormat" : "application/vnd.openactive.rpde+json; version={rpde-version}",
+        "contentUrl" : "{data-url}"
+      },
+      "inLanguage": "en-GB",
+      "publisher": {
+         "@type": "Organization", 
+         "name": "{publisher-name}",
+         "url": "{publisher-url}",
+         "logo": "{dataset-site-url}images/logo.png"
+      },
+      "datePublished" : "{created-machine}"
+    }
+    </script>
+  </head>
+  <body class="is-loading">
 
-				<!-- Main -->
-					<section id="main">
-						<header>
-				            <div property="dct:publisher" 
-				                 resource="{publisher-url}">
-				                <a href="{publisher-url}" about="{publisher-url}" property="foaf:homepage">
-				                    <span class="avatar" property="foaf:name" content="{publisher-name}"><img class="logo" src="{dataset-site-url}images/logo.png" alt=""/></span>
-				                </a>
-				            </div>
-							
-							<h1>Open Data</h1> 
+    <!-- Wrapper -->
+      <div id="wrapper" typeof="dcat:Dataset" resource="{dataset-site-url}">
 
-							<div property='dcat:distribution' typeof='dcat:Distribution'>
-								<span class="metadata" property="dct:title">OpenActive RPDE v{rpde-version} Endpoint</span>
-								<span class="metadata" content='application/vnd.openactive.rpde+json; version={rpde-version}' property='dcat:mediaType'>OpenActive RPDE v{rpde-version} Endpoint</span>    
-								<a class="metadata" href="https://www.openactive.io/realtime-paged-data-exchange/{rpde-version}/" property="dct:format">OpenActive RPDE v{rpde-version} Specification</a>
-								<p><a href='{data-url}' property='dcat:accessURL'>{title}</a></p>
-							</div> 
+        <!-- Main -->
+          <section id="main">
+            <header>
+                    <div>
+                        <a href="{publisher-url}" about="{publisher-url}" property="foaf:homepage">
+                            <span class="avatar" property="foaf:name" content="{publisher-name}"><img class="logo" src="{dataset-site-url}images/logo.png" alt=""/></span>
+                        </a>
+                    </div>
+              
+              <h1>Open Data</h1> 
 
-							<p class="description">{description}; published using <a href="https://www.openactive.io/realtime-paged-data-exchange/{rpde-version}/" property="dct:format">OpenActive RPDE v{rpde-version}</a>.<p>
+              <a property='dcat:distribution' typeof='dcat:Distribution' href='{data-url}'>
+                <span class="metadata" property="dct:title">OpenActive RPDE v{rpde-version} Endpoint</span>
+                <span class="metadata" content='application/vnd.openactive.rpde+json; version={rpde-version}' property='dcat:mediaType'>OpenActive RPDE v{rpde-version} Endpoint</span>
+                <p>{title}</p>
+              </a> 
 
-							<p class="metadata" property="dct:title">{title}</p> 
-					        <p class="metadata" property="dct:created" content='{created-machine}' datatype='xsd:dateTime'>{created-human}</p>
-					        <p class="metadata" property="dct:description">{description}; published using OpenActive RPDE v{rpde-version}.<p>
-					        <p class="metadata" property="dcat:keyword">{keyword-1}</p>
-					        <p class="metadata" property="dcat:keyword">{keyword-2}</p>
-					        <p class="metadata" property="dcat:keyword">OpenActive</p>
-					        <a class="metadata" href="http://purl.org/linked-data/sdmx/2009/code#freq-N" property="dcat:accrualPeriodicity">Every minute</a> 
+              <p class="description">{description}; published using <a href="https://www.openactive.io/realtime-paged-data-exchange/{rpde-version}/" property="dct:format">OpenActive RPDE v{rpde-version}</a>.<p>
 
-						</header>
+              <p class="metadata" property="dct:title">{title}</p> 
+                  <p class="metadata" property="dct:created" content='{created-machine}' datatype='xsd:dateTime'>{created-human}</p>
+                  <p class="metadata" property="dct:description">{description}; published using OpenActive RPDE v{rpde-version}.<p>
+                  <p class="metadata" property="dcat:keyword">{keyword-1}</p>
+                  <p class="metadata" property="dcat:keyword">{keyword-2}</p>
+                  <p class="metadata" property="dcat:keyword">OpenActive</p>
+                  <a class="metadata" href="http://purl.org/linked-data/sdmx/2009/code#freq-N" property="dct:accrualPeriodicity">Every minute</a> 
 
-           				<footer>
-							<ul class="icons">
-								<li><a href="#" id="open-popup" class="fa-envelope">Mailing List</a><br /><span>Mailing List</span></li>
-								<li><a href="{documentation-url}" class="fa-info">Documentation</a><br /><span>Documentation</span></li>
+            </header>
 
-								<li style="display: {odi-certificate-show};"><a href="https://certificates.theodi.org/en/datasets/{odi-certificate-number}/certificate" class="badge" style="background-image: url('https://certificates.theodi.org/en/datasets/{odi-certificate-number}/certificate/badge.png');"></a><br /><span>Certificate</span>
-								</li>
-							</ul>
-							<div class="license">
-					            <span property="dct:license" resource="{license-url}">
-					                This data is owned by <a href="{publisher-url}">{publisher-name}</a> and is licensed under the 
-					   				<a href="{license-url}"><span property="dct:title">{license-name}</span></a>
-					                 for anyone to access, use and share; 
-					            </span>
-					            <span property="dct:rights" resource="#rights" typeof="odrs:RightsStatement">
-						            <span class="metadata" property="rdfs:label">Rights Statement</span>
-						            <a class="metadata" href="{license-url}" property="odrs:dataLicense">{license-name}</a>
-						            <a class="metadata" href="{license-url}" property="odrs:contentLicense">{license-name}</a>
-						            using attribution 
-						            "<a href="{attribution-url}" property="odrs:attributionURL"><span property="odrs:attributionText">{attribution-text}</span></a>".
-						        </span>
-							</div>
-							<p></p>
-							<span class="avatar"><a href="https://www.openactive.io/"><img src="https://www.openactive.io/assets/openactive-logo-small.png" width="100" alt="OpenActive" /></a></span>
-						</footer>
-					</section>
+                  <footer>
+              <ul class="icons">
+                <li><a href="#" id="open-popup" class="fa-envelope">Mailing List</a><br /><span>Mailing List</span></li>
+                <li><a href="{documentation-url}" class="fa-info">Documentation</a><br /><span>Documentation</span></li>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<ul class="copyright">
-							{copyright-notice}
-							<li>Design: <a href="http://html5up.net">HTML5 UP</a>.</li>
-						</ul>
-					</footer>
+                <li style="display: {odi-certificate-show};"><a href="https://certificates.theodi.org/en/datasets/{odi-certificate-number}/certificate" class="badge" style="background-image: url('https://certificates.theodi.org/en/datasets/{odi-certificate-number}/certificate/badge.png');"></a><br /><span>Certificate</span>
+                </li>
+              </ul>
+              <div class="license">
+                      <span property="dct:license" resource="{license-url}">
+                          This data is owned by <a property="dct:publisher" href="{publisher-url}">{publisher-name}</a> and is licensed under the 
+                    <a href="{license-url}"><span property="dct:title">{license-name}</span></a>
+                           for anyone to access, use and share; 
+                      </span>
+                      <span property="dct:rights" resource="#rights" typeof="odrs:RightsStatement">
+                        <span class="metadata" property="rdfs:label">Rights Statement</span>
+                        <a class="metadata" href="{license-url}" property="odrs:dataLicense">{license-name}</a>
+                        <a class="metadata" href="{license-url}" property="odrs:contentLicense">{license-name}</a>
+                        using attribution 
+                        "<a href="{attribution-url}" property="odrs:attributionURL"><span property="odrs:attributionText">{attribution-text}</span></a>".
+                    </span>
+              </div>
+              <p></p>
+              <span class="avatar"><a href="https://www.openactive.io/"><img src="https://www.openactive.io/assets/openactive-logo-small.png" width="100" alt="OpenActive" /></a></span>
+            </footer>
+          </section>
 
-			</div>
+        <!-- Footer -->
+          <footer id="footer">
+            <ul class="copyright">
+              {copyright-notice}
+              <li>Design: <a href="http://html5up.net">HTML5 UP</a>.</li>
+            </ul>
+          </footer>
 
-		<!-- Scripts -->
-			<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
-			<script>
-				if ('addEventListener' in window) {
-					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
-					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
-				}
-			</script>
+      </div>
+
+    <!-- Scripts -->
+      <!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
+      <script>
+        if ('addEventListener' in window) {
+          window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
+          document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+        }
+      </script>
 
 
-		<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
-		<script type="text/javascript">
-			function showMailingPopUp() {
-				{mailchimp}
-				document.cookie = "MCEvilPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-			}
-			document.getElementById("open-popup").onclick = function() {showMailingPopUp()};
-		</script>
+    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
+    <script type="text/javascript">
+      function showMailingPopUp() {
+        {mailchimp}
+        document.cookie = "MCEvilPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+      }
+      document.getElementById("open-popup").onclick = function() {showMailingPopUp()};
+    </script>
 
-	</body>
+  </body>
 </html>
