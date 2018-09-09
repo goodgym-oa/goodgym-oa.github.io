@@ -1,12 +1,12 @@
 <!DOCTYPE HTML>
 <!--
-	Design: Identity by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  Design: Identity by HTML5 UP
+  html5up.net | @ajlkn
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 
-	DCAT Template: Nick Evans / imin
-	imin.co | @nickevans / @_imin_
-	For openactive.io
+  DCAT Template: Nick Evans / imin
+  imin.co | @nickevans / @_imin_
+  For openactive.io
     Free for personal and commercial use under the CC-BY v4.0 license (https://creativecommons.org/licenses/by/4.0/)
 -->
 <html prefix="dct: http://purl.org/dc/terms/
@@ -14,120 +14,149 @@
               dcat: http://www.w3.org/ns/dcat#
               foaf: http://xmlns.com/foaf/0.1/"
               lang="en">
-	<head>
-		<title>GoodGym Sessions - Open Data</title>
+  <head>
+    <title>GoodGym Sessions - Open Data</title>
 
-		<meta name="title" content="GoodGym Sessions - Open Data" />
-		<meta name="identifier" content="http://data.goodgym.org/" />
-		<meta name="Keywords" content="#UseYourRun, Running, OpenActive" />
-		<meta name="Description" content="Session data from the www.goodgym.org site; published using OpenActive RPDE v0.2.3." />
-		<meta name="language" content="English" />
+    <meta name="title" content="GoodGym Sessions - Open Data" />
+    <meta name="identifier" content="http://data.goodgym.org/" />
+    <meta name="Keywords" content="#UseYourRun, Running, OpenActive" />
+    <meta name="Description" content="Session data from the www.goodgym.org site; published using OpenActive RPDE v0.2.3." />
+    <meta name="language" content="English" />
 
-		<meta property="og:title" content="GoodGym Sessions - Open Data" />
-		<meta property="og:description" content="Session data from the www.goodgym.org site" />
-		<meta property="og:locale" content="en_GB" />
-		<meta property="og:url" content="http://data.goodgym.org/" />
-		<meta property="og:image" content="http://data.goodgym.org/images/logo.png" />
+    <meta property="og:title" content="GoodGym Sessions - Open Data" />
+    <meta property="og:description" content="Session data from the www.goodgym.org site" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:url" content="http://data.goodgym.org/" />
+    <meta property="og:image" content="http://data.goodgym.org/images/logo.png" />
 
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-loading">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-		<!-- Wrapper -->
-			<div id="wrapper" typeof="dcat:Dataset" resource="http://data.goodgym.org/">
+    <!-- JSON-LD conforming to Google Structured Data specification. -->
+    <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Dataset",
+      "name" : "GoodGym Sessions",
+      "id": "http://data.goodgym.org/",
+      "url": "http://data.goodgym.org/",
+      "description" : "Session data from the www.goodgym.org site; published using OpenActive RPDE v0.2.3.",
+      "keywords":[
+         "#UseYourRun",
+         "Running",
+         "OpenActive"
+      ],
+      "license" : "https://creativecommons.org/licenses/by/4.0/",
+      "distribution" : {
+        "@type" : "DataDownload",
+        "encodingFormat" : "application/vnd.openactive.rpde+json; version=0.2.3",
+        "contentUrl" : "https://www.goodgym.org/api/happenings"
+      },
+      "inLanguage": "en-GB",
+      "publisher": {
+         "@type": "Organization", 
+         "name": "GoodGym",
+         "url": "https://www.goodgym.org",
+         "logo": "http://data.goodgym.org/images/logo.png"
+      },
+      "datePublished" : "2016-07-11T00:00:00.000Z"
+    }
+    </script>
+  </head>
+  <body class="is-loading">
 
-				<!-- Main -->
-					<section id="main">
-						<header>
-				            <div property="dct:publisher" 
-				                 resource="https://www.goodgym.org">
-				                <a href="https://www.goodgym.org" about="https://www.goodgym.org" property="foaf:homepage">
-				                    <span class="avatar" property="foaf:name" content="GoodGym"><img class="logo" src="http://data.goodgym.org/images/logo.png" alt=""/></span>
-				                </a>
-				            </div>
-							
-							<h1>Open Data</h1> 
+    <!-- Wrapper -->
+      <div id="wrapper" typeof="dcat:Dataset" resource="http://data.goodgym.org/">
 
-							<div property='dcat:distribution' typeof='dcat:Distribution'>
-								<span class="metadata" property="dct:title">OpenActive RPDE v0.2.3 Endpoint</span>
-								<span class="metadata" content='application/vnd.openactive.rpde+json; version=0.2.3' property='dcat:mediaType'>OpenActive RPDE v0.2.3 Endpoint</span>    
-								<a class="metadata" href="https://www.openactive.io/realtime-paged-data-exchange/0.2.3/" property="dct:format">OpenActive RPDE v0.2.3 Specification</a>
-								<p><a href='https://www.goodgym.org/api/happenings' property='dcat:accessURL'>GoodGym Sessions</a></p>
-							</div> 
+        <!-- Main -->
+          <section id="main">
+            <header>
+                    <div>
+                        <a href="https://www.goodgym.org" about="https://www.goodgym.org" property="foaf:homepage">
+                            <span class="avatar" property="foaf:name" content="GoodGym"><img class="logo" src="http://data.goodgym.org/images/logo.png" alt=""/></span>
+                        </a>
+                    </div>
+              
+              <h1>Open Data</h1> 
 
-							<p class="description">Session data from the www.goodgym.org site; published using <a href="https://www.openactive.io/realtime-paged-data-exchange/0.2.3/" property="dct:format">OpenActive RPDE v0.2.3</a>.<p>
+              <a property='dcat:distribution' typeof='dcat:Distribution' href='https://www.goodgym.org/api/happenings'>
+                <span class="metadata" property="dct:title">OpenActive RPDE v0.2.3 Endpoint</span>
+                <span class="metadata" content='application/vnd.openactive.rpde+json; version=0.2.3' property='dcat:mediaType'>OpenActive RPDE v0.2.3 Endpoint</span>
+                <p>GoodGym Sessions</p>
+              </a> 
 
-							<p class="metadata" property="dct:title">GoodGym Sessions</p> 
-					        <p class="metadata" property="dct:created" content='2016-07-11T00:00:00.000Z' datatype='xsd:dateTime'>2016-07-11</p>
-					        <p class="metadata" property="dct:description">Session data from the www.goodgym.org site; published using OpenActive RPDE v0.2.3.<p>
-					        <p class="metadata" property="dcat:keyword">#UseYourRun</p>
-					        <p class="metadata" property="dcat:keyword">Running</p>
-					        <p class="metadata" property="dcat:keyword">OpenActive</p>
-					        <a class="metadata" href="http://purl.org/linked-data/sdmx/2009/code#freq-N" property="dcat:accrualPeriodicity">Every minute</a> 
+              <p class="description">Session data from the www.goodgym.org site; published using <a href="https://www.openactive.io/realtime-paged-data-exchange/0.2.3/" property="dct:format">OpenActive RPDE v0.2.3</a>.<p>
 
-						</header>
+              <p class="metadata" property="dct:title">GoodGym Sessions</p> 
+                  <p class="metadata" property="dct:created" content='2016-07-11T00:00:00.000Z' datatype='xsd:dateTime'>2016-07-11</p>
+                  <p class="metadata" property="dct:description">Session data from the www.goodgym.org site; published using OpenActive RPDE v0.2.3.<p>
+                  <p class="metadata" property="dcat:keyword">#UseYourRun</p>
+                  <p class="metadata" property="dcat:keyword">Running</p>
+                  <p class="metadata" property="dcat:keyword">OpenActive</p>
+                  <a class="metadata" href="http://purl.org/linked-data/sdmx/2009/code#freq-N" property="dct:accrualPeriodicity">Every minute</a> 
 
-           				<footer>
-							<ul class="icons">
-								<li><a href="#" id="open-popup" class="fa-envelope">Mailing List</a><br /><span>Mailing List</span></li>
-								<li><a href="https://github.com/goodgym-oa/opendata" class="fa-info">Documentation</a><br /><span>Documentation</span></li>
+            </header>
 
-								<li style="display: none;"><a href="https://certificates.theodi.org/en/datasets//certificate" class="badge" style="background-image: url('https://certificates.theodi.org/en/datasets//certificate/badge.png');"></a><br /><span>Certificate</span>
-								</li>
-							</ul>
-							<div class="license">
-					            <span property="dct:license" resource="https://creativecommons.org/licenses/by/4.0/">
-					                This data is owned by <a href="https://www.goodgym.org">GoodGym</a> and is licensed under the 
-					   				<a href="https://creativecommons.org/licenses/by/4.0/"><span property="dct:title">Creative Commons Attribution Licence (CC-BY v4.0)</span></a>
-					                 for anyone to access, use and share; 
-					            </span>
-					            <span property="dct:rights" resource="#rights" typeof="odrs:RightsStatement">
-						            <span class="metadata" property="rdfs:label">Rights Statement</span>
-						            <a class="metadata" href="https://creativecommons.org/licenses/by/4.0/" property="odrs:dataLicense">Creative Commons Attribution Licence (CC-BY v4.0)</a>
-						            <a class="metadata" href="https://creativecommons.org/licenses/by/4.0/" property="odrs:contentLicense">Creative Commons Attribution Licence (CC-BY v4.0)</a>
-						            using attribution 
-						            "<a href="http://data.goodgym.org/" property="odrs:attributionURL"><span property="odrs:attributionText">GoodGym</span></a>".
-						        </span>
-							</div>
-							<p></p>
-							<span class="avatar"><a href="https://www.openactive.io/"><img src="https://www.openactive.io/assets/openactive-logo-small.png" width="100" alt="OpenActive" /></a></span>
-						</footer>
-					</section>
+                  <footer>
+              <ul class="icons">
+                <li><a href="#" id="open-popup" class="fa-envelope">Mailing List</a><br /><span>Mailing List</span></li>
+                <li><a href="https://github.com/goodgym-oa/opendata" class="fa-info">Documentation</a><br /><span>Documentation</span></li>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<ul class="copyright">
-							
-							<li>Design: <a href="http://html5up.net">HTML5 UP</a>.</li>
-						</ul>
-					</footer>
+                <li style="display: none;"><a href="https://certificates.theodi.org/en/datasets//certificate" class="badge" style="background-image: url('https://certificates.theodi.org/en/datasets//certificate/badge.png');"></a><br /><span>Certificate</span>
+                </li>
+              </ul>
+              <div class="license">
+                      <span property="dct:license" resource="https://creativecommons.org/licenses/by/4.0/">
+                          This data is owned by <a property="dct:publisher" href="https://www.goodgym.org">GoodGym</a> and is licensed under the 
+                    <a href="https://creativecommons.org/licenses/by/4.0/"><span property="dct:title">Creative Commons Attribution Licence (CC-BY v4.0)</span></a>
+                           for anyone to access, use and share; 
+                      </span>
+                      <span property="dct:rights" resource="#rights" typeof="odrs:RightsStatement">
+                        <span class="metadata" property="rdfs:label">Rights Statement</span>
+                        <a class="metadata" href="https://creativecommons.org/licenses/by/4.0/" property="odrs:dataLicense">Creative Commons Attribution Licence (CC-BY v4.0)</a>
+                        <a class="metadata" href="https://creativecommons.org/licenses/by/4.0/" property="odrs:contentLicense">Creative Commons Attribution Licence (CC-BY v4.0)</a>
+                        using attribution 
+                        "<a href="http://data.goodgym.org/" property="odrs:attributionURL"><span property="odrs:attributionText">GoodGym</span></a>".
+                    </span>
+              </div>
+              <p></p>
+              <span class="avatar"><a href="https://www.openactive.io/"><img src="https://www.openactive.io/assets/openactive-logo-small.png" width="100" alt="OpenActive" /></a></span>
+            </footer>
+          </section>
 
-			</div>
+        <!-- Footer -->
+          <footer id="footer">
+            <ul class="copyright">
+              
+              <li>Design: <a href="http://html5up.net">HTML5 UP</a>.</li>
+            </ul>
+          </footer>
 
-		<!-- Scripts -->
-			<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
-			<script>
-				if ('addEventListener' in window) {
-					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
-					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
-				}
-			</script>
+      </div>
+
+    <!-- Scripts -->
+      <!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
+      <script>
+        if ('addEventListener' in window) {
+          window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
+          document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+        }
+      </script>
 
 
-		<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
-		<script type="text/javascript">
-			function showMailingPopUp() {
-				require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us13.list-manage.com","uuid":"7143de572aae09a68ce9de9d0","lid":"21b60b05c7"}) })
-				document.cookie = "MCEvilPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-			}
-			document.getElementById("open-popup").onclick = function() {showMailingPopUp()};
-		</script>
+    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
+    <script type="text/javascript">
+      function showMailingPopUp() {
+        require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us13.list-manage.com","uuid":"7143de572aae09a68ce9de9d0","lid":"21b60b05c7"}) })
+        document.cookie = "MCEvilPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+      }
+      document.getElementById("open-popup").onclick = function() {showMailingPopUp()};
+    </script>
 
-	</body>
+  </body>
 </html>
