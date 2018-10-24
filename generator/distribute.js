@@ -79,7 +79,7 @@ function runDeploy(queue, cb) {
 function metadataAccumulator(token, queue, metadataItems, metadataEnv) {
   var repoLocalPath = queue.pop();
   if (repoLocalPath) {
-    github.gitHubGetRawJsonContentCached(token, repoLocalPath, "metadata.json", function (metadata) {
+    github.gitHubGetRawJsonContent(token, repoLocalPath, "metadata.json", function (metadata) {
       //Only continue if load successful, ignore failure
       console.log("Metadata for: " + metadata["dataset-site-url"] + " (Publish: " + metadata["publish"] + ")");
       if (metadata["publish"]) {
