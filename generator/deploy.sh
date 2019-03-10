@@ -46,7 +46,7 @@ git pull upstream master -Xtheirs
 echo ""
 echo "Regenerating index.html..."
 
-../../../generator-standalone.js --template generator/template.html --metadata metadata.json --output index.html
+../../../generator-standalone.js --template generator/template.html --redirect generator/redirect_template.html --metadata metadata.json --output index.html
 
 echo ""
 echo "Checking if index.html has changed..."
