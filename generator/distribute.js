@@ -136,7 +136,7 @@ if(!program.token) {
             }
 
             //Add repos to dataset directory if they have stars > 0
-            if (body[i].stargazers_count >= 1) {
+            if (body[i].stargazers_count >= 1 && body[i].name.indexOf('ActiveLifeLtd') == -1) { // PATCH: Fix removal of the ghost of ActiveLifeLtd
                 console.log(chalk.cyan('\nAdding to dataset directory queue: ' + body[i].full_name  + '...'));
                 metadataQueue.push(body[i].full_name);
             } else {
