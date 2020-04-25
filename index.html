@@ -40,31 +40,47 @@
     <!-- JSON-LD conforming to Google Structured Data specification. -->
     <script type="application/ld+json">
     {
-      "@context" : "http://schema.org",
-      "@type" : "Dataset",
-      "name" : "GoodGym Sessions",
-      "id": "http://data.goodgym.org/",
+      "@context": [
+        "https://schema.org/",
+        "https://openactive.io/"
+      ],
+      "@type": "Dataset",
+      "@id": "http://data.goodgym.org/",
       "url": "http://data.goodgym.org/",
-      "description" : "Session data from the www.goodgym.org site; published using OpenActive RPDE v0.2.3.",
+      "name": "GoodGym Sessions",
+      "description": "Session data from the www.goodgym.org site; published using OpenActive RPDE v0.2.3.",
       "keywords":[
-         "#UseYourRun",
-         "Running",
-         "OpenActive"
+          "#UseYourRun",
+          "Running",
+          "OpenActive"
       ],
       "license" : "https://creativecommons.org/licenses/by/4.0/",
-      "distribution" : {
-        "@type" : "DataDownload",
-        "encodingFormat" : "application/vnd.openactive.rpde+json; version=0.2.3",
-        "contentUrl" : "https://www.goodgym.org/api/happenings"
-      },
-      "inLanguage": "en-GB",
+      "distribution": [
+        {
+          "@type" : "DataDownload",
+          "encodingFormat" : "application/vnd.openactive.rpde+json; version={rpdeversion}",
+          "contentUrl" : "https://www.goodgym.org/api/happenings"
+        }
+      ],
+      "discussionUrl": "https://github.com/goodgym-oa/opendata/issues",
+      "documentation": "https://github.com/goodgym-oa/opendata",
+      "inLanguage": [
+        "en-GB"
+      ],
       "publisher": {
-         "@type": "Organization", 
-         "name": "GoodGym",
-         "url": "https://www.goodgym.org",
-         "logo": "http://data.goodgym.org/images/logo.png"
+        "@type": "Organization",
+        "name": "GoodGym",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "http://data.goodgym.org/images/logo.png"
+        },
+        "url": "https://www.goodgym.org"
       },
-      "datePublished" : "2016-07-11T00:00:00.000Z"
+      "datePublished": "2016-07-11T00:00:00.000Z",
+      "backgroundImage": {
+        "@type": "ImageObject",
+        "url": "http://data.goodgym.org/images/bg.jpg"
+      }
     }
     </script>
   </head>
