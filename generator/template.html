@@ -40,31 +40,47 @@
     <!-- JSON-LD conforming to Google Structured Data specification. -->
     <script type="application/ld+json">
     {
-      "@context" : "http://schema.org",
-      "@type" : "Dataset",
-      "name" : "{title}",
-      "id": "{dataset-site-url}",
+      "@context": [
+        "https://schema.org/",
+        "https://openactive.io/"
+      ],
+      "@type": "Dataset",
+      "@id": "{dataset-site-url}",
       "url": "{dataset-site-url}",
-      "description" : "{description}; published using OpenActive RPDE v{rpde-version}.",
+      "name": "{title}",
+      "description": "{description}; published using OpenActive RPDE v{rpde-version}.",
       "keywords":[
-         "{keyword-1}",
-         "{keyword-2}",
-         "OpenActive"
+          "{keyword-1}",
+          "{keyword-2}",
+          "OpenActive"
       ],
       "license" : "{license-url}",
-      "distribution" : {
-        "@type" : "DataDownload",
-        "encodingFormat" : "application/vnd.openactive.rpde+json; version={rpde-version}",
-        "contentUrl" : "{data-url}"
-      },
-      "inLanguage": "en-GB",
+      "distribution": [
+        {
+          "@type" : "DataDownload",
+          "encodingFormat" : "application/vnd.openactive.rpde+json; version={rpdeversion}",
+          "contentUrl" : "{data-url}"
+        }
+      ],
+      "discussionUrl": "{documentation-url}/issues",
+      "documentation": "{documentation-url}",
+      "inLanguage": [
+        "en-GB"
+      ],
       "publisher": {
-         "@type": "Organization", 
-         "name": "{publisher-name}",
-         "url": "{publisher-url}",
-         "logo": "{dataset-site-url}images/logo.png"
+        "@type": "Organization",
+        "name": "{publisher-name}",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{dataset-site-url}images/logo.png"
+        },
+        "url": "{publisher-url}"
       },
-      "datePublished" : "{created-machine}"
+      "datePublished": "{created-machine}",
+      "backgroundImage": {
+        "@type": "ImageObject",
+        "url": "{dataset-site-url}images/bg.jpg"
+      }
     }
     </script>
   </head>
